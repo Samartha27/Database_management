@@ -1,0 +1,47 @@
+3a.
+Decomposing R(A,B,C,D,E) using Boyce–Codd normal form with functional dependencies D → B, CE → A.
+Let's consider the closure for D
+X = D , X+ = {BD}
+The closure does not include all the attributes. X+ = {ABCDE}
+{D}+ = {B,D} which is not {D}(X ≠ X+ ) nor {ABCDE} (X+ = {ABCDE})
+{ABCDE} - {BD} = {ACE}. Considering D for joining, the decomposition to this is  R1{B,D} and R2{ACDE}
+We have to decompose R2.
+
+Let's consider the closure for CE
+X = CE , X+ = {ACE}
+The closure does not include all the attributes. X+ = {ABCDE}
+{CE}+ = {ACE} which is not {CE}(X ≠ X+) nor {ABCDE} (X+ = {ABCDE})
+{ACDE} - {ACE} = {D}. Considering CE for joining, the decomposition to this is  R3{ACE} and R4{CDE}
+So the decomposition is R1{B,D}, R3{ACE} and R4{CDE}.
+
+
+
+
+3b.
+Decomposing R(A,B,C,D,E) using Boyce–Codd normal form with functional dependencies A → E, BC → A, DE → B
+Let's consider the closure for A
+X = A , X+ = {AE}
+{A}+ = {AE} which is not {A}(X ≠ X+ ) nor {ABCDE} (X+ = {ABCDE})
+{ABCDE} - {AE} = {BCD}. Considering A for joining, the decomposition to this is  R1{AE} and R2{ACDB}.
+We have to decompose R2.
+
+Let's consider the closure for BC
+X = BC , X+ = {ACB}
+{BC}+ = {ACB} which is not {BC}(X ≠ X+) nor {ABCDE} (X+ = {ABCDE})
+{ACDB} - {ACB} = {D}. Considering CE for joining, the decomposition to this is  R3{ABC} and R4{BCD}
+So the decomposition is R1{B,D}, R3{ABC} and R4{BCD}.
+
+
+
+3c. All subsets of {A,B,C,D} are closed.
+SInce th attributes are already closed there is no need to establish any functional dependencies. The only possible way to establish functional dependency is to map each attribute to itself. A -> A, B -> B, C -> C, D -> D. All attibutes will have trivial functional dependencies.
+
+
+
+3d. The only closed subsets of {A,B,C,D} are {} and {A,B,C,D}.
+A -> B, B -> C, C -> D, D -> A 
+These will make the attributes to not be closed except for {} and {A,B,C,D}.
+
+3e. The only closed subsets of {A,B,C,D} are {}, {B,C}, and {A,B,C,D}.
+C -> B, B -> C, A -> BCD, D -> ABC
+
